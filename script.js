@@ -8,49 +8,6 @@ const ENABLE_BACKGROUND_ANIMATION = true;
 })();
 
 (() => {
-  const copyButton = document.getElementById("copy-email");
-  const copyStatus = document.getElementById("copy-status");
-  if (!copyButton || !copyStatus) {
-    return;
-  }
-
-  async function copyText(text) {
-    if (navigator.clipboard && window.isSecureContext) {
-      await navigator.clipboard.writeText(text);
-      return;
-    }
-
-    const textArea = document.createElement("textarea");
-    textArea.value = text;
-    textArea.setAttribute("readonly", "");
-    textArea.style.position = "absolute";
-    textArea.style.left = "-9999px";
-    document.body.append(textArea);
-    textArea.select();
-    document.execCommand("copy");
-    textArea.remove();
-  }
-
-  copyButton.addEventListener("click", async () => {
-    const email = copyButton.dataset.email;
-    if (!email) {
-      return;
-    }
-
-    try {
-      await copyText(email);
-      copyStatus.textContent = "Email copied.";
-    } catch (error) {
-      copyStatus.textContent = "Copy failed.";
-    }
-
-    window.setTimeout(() => {
-      copyStatus.textContent = "";
-    }, 1700);
-  });
-})();
-
-(() => {
   const canvas = document.getElementById("bg-canvas");
   if (!canvas) {
     return;
@@ -92,8 +49,9 @@ const ENABLE_BACKGROUND_ANIMATION = true;
       height * 0.18,
       Math.max(width, height)
     );
-    gradient.addColorStop(0, "rgba(65, 222, 255, 0.08)");
-    gradient.addColorStop(0.45, "rgba(15, 47, 89, 0.02)");
+    gradient.addColorStop(0, "rgba(67, 229, 255, 0.1)");
+    gradient.addColorStop(0.35, "rgba(100, 84, 230, 0.05)");
+    gradient.addColorStop(0.58, "rgba(14, 33, 77, 0.03)");
     gradient.addColorStop(1, "rgba(0, 0, 0, 0)");
     context.fillStyle = gradient;
     context.fillRect(0, 0, width, height);
@@ -129,8 +87,8 @@ const ENABLE_BACKGROUND_ANIMATION = true;
           continue;
         }
 
-        const alpha = 0.18 * (1 - distSquared / maxDistSquared);
-        context.strokeStyle = `rgba(81, 197, 255, ${alpha.toFixed(3)})`;
+        const alpha = 0.2 * (1 - distSquared / maxDistSquared);
+        context.strokeStyle = `rgba(83, 212, 255, ${alpha.toFixed(3)})`;
         context.lineWidth = 1;
         context.beginPath();
         context.moveTo(particle.x, particle.y);
@@ -140,7 +98,7 @@ const ENABLE_BACKGROUND_ANIMATION = true;
     }
 
     for (const particle of particles) {
-      context.fillStyle = "rgba(159, 222, 255, 0.8)";
+      context.fillStyle = "rgba(170, 229, 255, 0.84)";
       context.beginPath();
       context.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
       context.fill();

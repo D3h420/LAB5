@@ -39,8 +39,8 @@ Edit the placeholder block near the top of `index.html`:
 
 Also update visible text and links in:
 
-- Hero section (`<h1>`, tagline, contact button)
-- Social/email list
+- Header section (`<h1>`, tagline)
+- Links section (single frame with described links)
 
 ### Projects (3 cards)
 
@@ -48,8 +48,7 @@ In `index.html`, replace each project card’s:
 
 - title
 - description
-- GitHub link
-- demo link
+- image path (optional)
 
 ### Replace project images
 
