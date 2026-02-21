@@ -1,18 +1,18 @@
 :root {
   color-scheme: dark;
-  --bg-0: #020308;
-  --bg-1: #050812;
-  --bg-2: #0a1020;
-  --panel: rgba(6, 11, 24, 0.78);
-  --panel-strong: rgba(9, 15, 32, 0.9);
-  --text: #e9f2ff;
-  --muted: #8fa3ca;
-  --accent: #45e7ff;
-  --accent-soft: #76b8ff;
-  --accent-violet: #8b7dff;
-  --border: rgba(116, 173, 255, 0.28);
-  --border-strong: rgba(122, 233, 255, 0.72);
-  --shadow: 0 24px 62px rgba(0, 0, 0, 0.65);
+  --bg-0: #010105;
+  --bg-1: #04020b;
+  --bg-2: #090512;
+  --panel: rgba(10, 6, 18, 0.82);
+  --panel-strong: rgba(14, 9, 26, 0.9);
+  --text: #f4eeff;
+  --muted: #aa96c4;
+  --accent: #ff4fd8;
+  --accent-soft: #ff8de8;
+  --accent-violet: #b46bff;
+  --border: rgba(205, 106, 191, 0.26);
+  --border-strong: rgba(255, 123, 221, 0.66);
+  --shadow: 0 24px 62px rgba(0, 0, 0, 0.74);
   --radius-xl: 22px;
   --radius-lg: 16px;
   --radius-md: 12px;
@@ -33,10 +33,10 @@ body {
 
 body {
   background:
-    radial-gradient(circle at 13% 2%, rgba(71, 219, 255, 0.08), transparent 30%),
-    radial-gradient(circle at 84% 0%, rgba(133, 125, 255, 0.1), transparent 34%),
-    radial-gradient(circle at 50% 130%, rgba(13, 78, 149, 0.3), transparent 45%),
-    linear-gradient(165deg, var(--bg-0), var(--bg-1) 48%, var(--bg-2));
+    radial-gradient(circle at 12% 2%, rgba(255, 88, 214, 0.1), transparent 30%),
+    radial-gradient(circle at 86% 5%, rgba(181, 99, 255, 0.12), transparent 35%),
+    radial-gradient(circle at 50% 126%, rgba(106, 18, 114, 0.3), transparent 44%),
+    linear-gradient(168deg, var(--bg-0), var(--bg-1) 48%, var(--bg-2));
   color: var(--text);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   line-height: 1.55;
@@ -79,10 +79,10 @@ a {
 .bg-grid {
   z-index: -3;
   background-image:
-    linear-gradient(rgba(87, 153, 237, 0.11) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(87, 153, 237, 0.11) 1px, transparent 1px);
+    linear-gradient(rgba(180, 87, 175, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(180, 87, 175, 0.12) 1px, transparent 1px);
   background-size: 46px 46px;
-  opacity: 0.2;
+  opacity: 0.17;
   mask-image: radial-gradient(circle at center, black 42%, transparent 100%);
   -webkit-mask-image: radial-gradient(circle at center, black 42%, transparent 100%);
   animation: gridDrift 52s linear infinite;
@@ -91,9 +91,9 @@ a {
 .bg-glow {
   z-index: -2;
   background:
-    radial-gradient(circle at 16% 24%, rgba(62, 225, 255, 0.18), transparent 36%),
-    radial-gradient(circle at 77% 19%, rgba(142, 121, 255, 0.18), transparent 35%),
-    radial-gradient(circle at 50% 86%, rgba(10, 102, 200, 0.18), transparent 38%);
+    radial-gradient(circle at 16% 24%, rgba(255, 88, 214, 0.2), transparent 36%),
+    radial-gradient(circle at 77% 19%, rgba(183, 101, 255, 0.2), transparent 35%),
+    radial-gradient(circle at 50% 86%, rgba(124, 26, 142, 0.2), transparent 40%);
   filter: blur(6px) saturate(115%);
   animation: glowShift 20s ease-in-out infinite alternate;
 }
@@ -122,7 +122,7 @@ main {
 }
 
 .panel {
-  background: linear-gradient(175deg, rgba(8, 14, 29, 0.88), rgba(5, 10, 20, 0.78));
+  background: linear-gradient(175deg, rgba(14, 8, 24, 0.9), rgba(8, 5, 16, 0.82));
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow);
@@ -149,14 +149,14 @@ h1 {
   line-height: 0.98;
   letter-spacing: -0.05em;
   text-shadow:
-    0 0 18px rgba(69, 231, 255, 0.2),
-    0 0 40px rgba(139, 125, 255, 0.14);
+    0 0 18px rgba(255, 86, 213, 0.26),
+    0 0 40px rgba(180, 109, 255, 0.2);
 }
 
 .tagline {
   margin: 0.75rem 0 0;
   max-width: 62ch;
-  color: #c1d0ec;
+  color: #d4c6e6;
   font-size: clamp(1rem, 2.4vw, 1.18rem);
 }
 
@@ -191,9 +191,9 @@ h2 {
   flex-direction: column;
   gap: 0.9rem;
   padding: 0.85rem;
-  border: 1px solid rgba(115, 180, 255, 0.32);
+  border: 1px solid rgba(199, 109, 191, 0.32);
   background:
-    linear-gradient(165deg, rgba(8, 13, 28, 0.94), rgba(5, 10, 21, 0.84));
+    linear-gradient(165deg, rgba(15, 8, 26, 0.94), rgba(9, 5, 16, 0.86));
   transition:
     transform var(--speed-fast),
     border-color var(--speed-fast),
@@ -206,17 +206,17 @@ h2 {
   transform: translateY(-5px);
   border-color: var(--border-strong);
   background:
-    linear-gradient(165deg, rgba(9, 16, 35, 0.95), rgba(7, 11, 25, 0.9));
+    linear-gradient(165deg, rgba(20, 11, 34, 0.96), rgba(11, 7, 20, 0.92));
   box-shadow:
-    0 26px 52px rgba(0, 0, 0, 0.66),
-    0 0 26px rgba(69, 231, 255, 0.12);
+    0 26px 52px rgba(0, 0, 0, 0.72),
+    0 0 28px rgba(255, 94, 219, 0.14);
 }
 
 .project-media {
-  border: 1px solid rgba(121, 189, 255, 0.28);
+  border: 1px solid rgba(185, 98, 176, 0.3);
   border-radius: var(--radius-md);
   overflow: hidden;
-  background: rgba(3, 8, 18, 0.95);
+  background: rgba(8, 4, 14, 0.95);
 }
 
 .project-media img {
@@ -233,15 +233,15 @@ h2 {
 
 .project-card p {
   margin: 0;
-  color: #b5c4e2;
+  color: #c7b8d8;
   font-size: 0.95rem;
 }
 
 .links-frame {
   padding: 1rem 1rem 1.15rem;
-  border-color: rgba(124, 195, 255, 0.3);
+  border-color: rgba(205, 106, 191, 0.34);
   background:
-    linear-gradient(170deg, rgba(8, 13, 28, 0.94), rgba(5, 9, 19, 0.9));
+    linear-gradient(170deg, rgba(15, 8, 26, 0.94), rgba(8, 5, 16, 0.9));
 }
 
 .links-frame h3 {
@@ -264,16 +264,16 @@ h2 {
 
 .link-item {
   padding: 0.6rem 0.65rem 0.62rem;
-  border: 1px solid rgba(99, 159, 229, 0.22);
+  border: 1px solid rgba(173, 90, 162, 0.24);
   border-radius: 12px;
-  background: rgba(8, 13, 26, 0.72);
+  background: rgba(13, 7, 23, 0.76);
   transition: border-color var(--speed-fast), background var(--speed-fast);
 }
 
 .link-item:hover,
 .link-item:focus-within {
-  border-color: rgba(119, 226, 255, 0.55);
-  background: rgba(10, 16, 33, 0.86);
+  border-color: rgba(255, 118, 221, 0.58);
+  background: rgba(18, 10, 31, 0.88);
 }
 
 .icon-link {
@@ -281,7 +281,7 @@ h2 {
   align-items: center;
   gap: 0.52rem;
   text-decoration: none;
-  color: #d8e6ff;
+  color: #f1e8ff;
   font-weight: 650;
   line-height: 1.25;
   border-radius: 8px;
@@ -307,7 +307,7 @@ h2 {
 
 .link-item p {
   margin: 0.36rem 0 0;
-  color: #9aafd8;
+  color: #bba9cd;
   font-size: 0.87rem;
 }
 
@@ -317,7 +317,7 @@ h2 {
 
 .site-footer p {
   margin: 0;
-  color: #8094bd;
+  color: #8f7fa6;
   text-align: center;
   font-size: 0.88rem;
 }

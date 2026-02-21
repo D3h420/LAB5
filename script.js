@@ -49,9 +49,9 @@ const ENABLE_BACKGROUND_ANIMATION = true;
       height * 0.18,
       Math.max(width, height)
     );
-    gradient.addColorStop(0, "rgba(67, 229, 255, 0.1)");
-    gradient.addColorStop(0.35, "rgba(100, 84, 230, 0.05)");
-    gradient.addColorStop(0.58, "rgba(14, 33, 77, 0.03)");
+    gradient.addColorStop(0, "rgba(255, 94, 218, 0.1)");
+    gradient.addColorStop(0.35, "rgba(190, 108, 255, 0.08)");
+    gradient.addColorStop(0.58, "rgba(78, 28, 108, 0.06)");
     gradient.addColorStop(1, "rgba(0, 0, 0, 0)");
     context.fillStyle = gradient;
     context.fillRect(0, 0, width, height);
@@ -88,7 +88,7 @@ const ENABLE_BACKGROUND_ANIMATION = true;
         }
 
         const alpha = 0.2 * (1 - distSquared / maxDistSquared);
-        context.strokeStyle = `rgba(83, 212, 255, ${alpha.toFixed(3)})`;
+        context.strokeStyle = `rgba(255, 118, 224, ${alpha.toFixed(3)})`;
         context.lineWidth = 1;
         context.beginPath();
         context.moveTo(particle.x, particle.y);
@@ -98,7 +98,7 @@ const ENABLE_BACKGROUND_ANIMATION = true;
     }
 
     for (const particle of particles) {
-      context.fillStyle = "rgba(170, 229, 255, 0.84)";
+      context.fillStyle = "rgba(255, 178, 236, 0.82)";
       context.beginPath();
       context.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
       context.fill();
