@@ -13,6 +13,7 @@
 
   <canvas id="bg-canvas" aria-hidden="true"></canvas>
   <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-traces" aria-hidden="true"></div>
   <div class="bg-glow" aria-hidden="true"></div>
   <div class="bg-scanline" aria-hidden="true"></div>
 
@@ -20,20 +21,32 @@
     <div class="container">
       <!--
         Editable placeholders:
-        NAME: D3h420
-        TAGLINE: Micro portfolio: projects & socials
+        NAME: LAB5
+        TAGLINE: LABORATORY BASIC LINKS
         CONTACT_EMAIL: hello@example.com
         PROJECTS:
-          1) Telemetry Board
-          2) Mesh Studio
-          3) Pulse API Console
+          1) Flipper Zero
+          2) Tab5
+          3) Cardputer
         SOCIALS:
           GitHub / X-Twitter / LinkedIn / Discord / Email
       -->
-      <header class="masthead" aria-label="Site header">
+      <header class="masthead explosive-masthead" aria-label="Site header">
         <p class="eyebrow">Digital Systems · Frontend</p>
-        <h1>D3h420</h1>
-        <p class="tagline">Micro portfolio: projects &amp; socials</p>
+        <h1 class="hero-title" data-text="LAB5">LAB5</h1>
+        <p class="tagline">LABORATORY BASIC LINKS</p>
+        <div class="hero-sparks" aria-hidden="true">
+          <span class="spark" style="--x: 8%; --y: 58%; --dx: -48px; --dy: -32px; --delay: 0.1s;"></span>
+          <span class="spark" style="--x: 20%; --y: 22%; --dx: -36px; --dy: -52px; --delay: 0.4s;"></span>
+          <span class="spark" style="--x: 30%; --y: 66%; --dx: -22px; --dy: 36px; --delay: 0.7s;"></span>
+          <span class="spark" style="--x: 40%; --y: 34%; --dx: 18px; --dy: -46px; --delay: 0.5s;"></span>
+          <span class="spark" style="--x: 48%; --y: 60%; --dx: 30px; --dy: 30px; --delay: 0.2s;"></span>
+          <span class="spark" style="--x: 56%; --y: 24%; --dx: 40px; --dy: -54px; --delay: 0.8s;"></span>
+          <span class="spark" style="--x: 62%; --y: 70%; --dx: 50px; --dy: 36px; --delay: 0.3s;"></span>
+          <span class="spark" style="--x: 72%; --y: 38%; --dx: 60px; --dy: -18px; --delay: 0.6s;"></span>
+          <span class="spark" style="--x: 80%; --y: 58%; --dx: 70px; --dy: 20px; --delay: 1s;"></span>
+          <span class="spark" style="--x: 90%; --y: 30%; --dx: 84px; --dy: -42px; --delay: 0.9s;"></span>
+        </div>
       </header>
 
       <section class="section" id="projects" aria-labelledby="projects-title">
@@ -47,7 +60,7 @@
             <div class="project-media">
               <img src="assets/projects/project1.png" width="960" height="540" loading="lazy" alt="Abstract cyan and blue circuit inspired thumbnail.">
             </div>
-            <h3>Telemetry Board</h3>
+            <h3>Flipper Zero</h3>
             <p>
               Real-time system health dashboard with adaptive widgets and alert timelines.
               Built for clear signal visibility under pressure.
@@ -58,7 +71,7 @@
             <div class="project-media">
               <img src="assets/projects/project2.png" width="960" height="540" loading="lazy" alt="Abstract blue and purple wireframe style thumbnail.">
             </div>
-            <h3>Mesh Studio</h3>
+            <h3>Tab5</h3>
             <p>
               Interactive design tool for prototyping UI flows and shared component states.
               Lightweight by default with instant preview sharing.
@@ -69,7 +82,7 @@
             <div class="project-media">
               <img src="assets/projects/project3.png" width="960" height="540" loading="lazy" alt="Abstract neon network and node map thumbnail.">
             </div>
-            <h3>Pulse API Console</h3>
+            <h3>Cardputer</h3>
             <p>
               Developer-first API explorer with contract validation and response diffing.
               Designed for rapid testing and confident releases.
@@ -81,11 +94,9 @@
       <section class="section" id="links" aria-labelledby="links-title">
         <div class="section-head">
           <h2 id="links-title">Links</h2>
-          <p>Repositories, profiles, and direct contact channels.</p>
         </div>
 
         <article class="panel links-frame">
-          <h3>Primary Links</h3>
           <ul class="clean-list links-list">
             <li class="link-item">
               <a class="icon-link" href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
