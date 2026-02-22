@@ -129,10 +129,10 @@ h2 {
 }
 
 .project-card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.9rem;
-  padding: 0.85rem;
+  position: relative;
+  overflow: hidden;
+  min-height: 300px;
+  padding: 0;
   transition: transform var(--speed-fast), border-color var(--speed-fast);
 }
 
@@ -143,27 +143,47 @@ h2 {
 }
 
 .project-media {
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: var(--radius-md);
-  overflow: hidden;
+  position: absolute;
+  inset: 0;
   background: #070709;
 }
 
 .project-media img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
 }
 
-.project-card h3 {
+.project-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  padding: 1rem 0.95rem 0.95rem;
+  background:
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.88) 0%,
+      rgba(0, 0, 0, 0.74) 48%,
+      rgba(0, 0, 0, 0.38) 78%,
+      rgba(0, 0, 0, 0) 100%
+    );
+}
+
+.project-content h3 {
   margin: 0;
   font-size: 1.1rem;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.65);
 }
 
-.project-card p {
+.project-content p {
   margin: 0;
+  margin-top: 0.42rem;
   color: #c2bac4;
   font-size: 0.94rem;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.75);
 }
 
 .links-frame {
