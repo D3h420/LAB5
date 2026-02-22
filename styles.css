@@ -72,13 +72,12 @@ a {
 
 .bg-glow {
   z-index: 1;
-  opacity: 0.3;
-  filter: blur(26px);
+  opacity: 0.26;
+  filter: blur(24px);
   background:
-    radial-gradient(circle at 18% 20%, rgba(255, 82, 208, 0.33), transparent 34%),
-    radial-gradient(circle at 80% 16%, rgba(255, 112, 218, 0.21), transparent 30%),
-    radial-gradient(circle at 60% 86%, rgba(181, 39, 121, 0.22), transparent 36%);
-  animation: glowDrift 14s ease-in-out infinite alternate;
+    radial-gradient(circle at 18% 20%, rgba(255, 82, 208, 0.29), transparent 34%),
+    radial-gradient(circle at 80% 16%, rgba(255, 112, 218, 0.18), transparent 30%),
+    radial-gradient(circle at 60% 86%, rgba(181, 39, 121, 0.18), transparent 36%);
 }
 
 main {
@@ -111,13 +110,13 @@ h1 {
   line-height: 1;
   letter-spacing: -0.04em;
   text-shadow:
-    0 0 16px rgba(255, 95, 212, 0.42),
-    0 0 36px rgba(255, 95, 212, 0.24),
-    0 0 72px rgba(255, 95, 212, 0.12);
+    0 0 20px rgba(255, 110, 218, 0.62),
+    0 0 46px rgba(255, 110, 218, 0.38),
+    0 0 94px rgba(255, 110, 218, 0.2);
 }
 
 .logo-glow {
-  animation: logoPulse 4.2s ease-in-out infinite;
+  animation: logoPulse 3.6s ease-in-out infinite;
 }
 
 .tagline {
@@ -296,28 +295,19 @@ h2 {
   font-size: 0.88rem;
 }
 
-@keyframes glowDrift {
-  from {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-  to {
-    transform: translate3d(-1.4%, 1.6%, 0) scale(1.03);
-  }
-}
-
 @keyframes logoPulse {
   0%,
   100% {
     text-shadow:
-      0 0 16px rgba(255, 98, 213, 0.38),
-      0 0 34px rgba(255, 98, 213, 0.2),
-      0 0 62px rgba(255, 98, 213, 0.1);
+      0 0 18px rgba(255, 112, 218, 0.56),
+      0 0 42px rgba(255, 112, 218, 0.34),
+      0 0 80px rgba(255, 112, 218, 0.16);
   }
   50% {
     text-shadow:
-      0 0 22px rgba(255, 128, 223, 0.6),
-      0 0 54px rgba(255, 128, 223, 0.34),
-      0 0 92px rgba(255, 128, 223, 0.18);
+      0 0 30px rgba(255, 148, 228, 0.92),
+      0 0 72px rgba(255, 148, 228, 0.58),
+      0 0 116px rgba(255, 148, 228, 0.28);
   }
 }
 
