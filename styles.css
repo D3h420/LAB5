@@ -58,48 +58,27 @@ a {
   top: 12px;
 }
 
-.bg-grid,
-.bg-pcb,
+#pcb-canvas,
 .bg-glow {
   position: fixed;
   inset: 0;
   pointer-events: none;
 }
 
-.bg-grid {
+#pcb-canvas {
   z-index: 0;
-  opacity: 0.11;
-  background-image:
-    linear-gradient(rgba(255, 120, 220, 0.2) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 120, 220, 0.2) 1px, transparent 1px);
-  background-size: 42px 42px;
-  -webkit-mask-image: radial-gradient(circle at center, black 35%, transparent 100%);
-  mask-image: radial-gradient(circle at center, black 35%, transparent 100%);
-  animation: gridDrift 56s linear infinite;
-}
-
-.bg-pcb {
-  z-index: 1;
-  opacity: 0.18;
-  background-image:
-    linear-gradient(90deg, transparent 0 21%, rgba(255, 106, 214, 0.34) 21% 22%, transparent 22% 100%),
-    linear-gradient(0deg, transparent 0 47%, rgba(255, 106, 214, 0.3) 47% 48%, transparent 48% 100%),
-    radial-gradient(circle at 28% 58%, rgba(255, 148, 227, 0.35) 0 1.5px, transparent 2px),
-    radial-gradient(circle at 71% 36%, rgba(255, 148, 227, 0.35) 0 1.5px, transparent 2px);
-  background-size: 260px 180px, 220px 220px, 240px 180px, 280px 220px;
-  background-position: 0 0, 120px 70px, 0 0, 80px 40px;
-  animation: pcbDrift 24s ease-in-out infinite alternate;
+  opacity: 0.9;
 }
 
 .bg-glow {
-  z-index: 2;
-  opacity: 0.34;
-  filter: blur(24px);
+  z-index: 1;
+  opacity: 0.3;
+  filter: blur(26px);
   background:
-    radial-gradient(circle at 18% 20%, rgba(255, 78, 206, 0.34), transparent 34%),
-    radial-gradient(circle at 80% 16%, rgba(255, 102, 215, 0.24), transparent 30%),
-    radial-gradient(circle at 60% 86%, rgba(181, 39, 121, 0.24), transparent 36%);
-  animation: glowDrift 18s ease-in-out infinite alternate;
+    radial-gradient(circle at 18% 20%, rgba(255, 82, 208, 0.33), transparent 34%),
+    radial-gradient(circle at 80% 16%, rgba(255, 112, 218, 0.21), transparent 30%),
+    radial-gradient(circle at 60% 86%, rgba(181, 39, 121, 0.22), transparent 36%);
+  animation: glowDrift 14s ease-in-out infinite alternate;
 }
 
 main {
@@ -132,12 +111,13 @@ h1 {
   line-height: 1;
   letter-spacing: -0.04em;
   text-shadow:
-    0 0 12px rgba(255, 76, 200, 0.18),
-    0 0 28px rgba(255, 76, 200, 0.08);
+    0 0 16px rgba(255, 95, 212, 0.42),
+    0 0 36px rgba(255, 95, 212, 0.24),
+    0 0 72px rgba(255, 95, 212, 0.12);
 }
 
 .logo-glow {
-  animation: logoPulse 5.8s ease-in-out infinite;
+  animation: logoPulse 4.2s ease-in-out infinite;
 }
 
 .tagline {
@@ -316,24 +296,6 @@ h2 {
   font-size: 0.88rem;
 }
 
-@keyframes gridDrift {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-  to {
-    transform: translate3d(42px, 42px, 0);
-  }
-}
-
-@keyframes pcbDrift {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-  to {
-    transform: translate3d(-22px, 18px, 0);
-  }
-}
-
 @keyframes glowDrift {
   from {
     transform: translate3d(0, 0, 0) scale(1);
@@ -347,13 +309,15 @@ h2 {
   0%,
   100% {
     text-shadow:
-      0 0 11px rgba(255, 76, 200, 0.17),
-      0 0 24px rgba(255, 76, 200, 0.07);
+      0 0 16px rgba(255, 98, 213, 0.38),
+      0 0 34px rgba(255, 98, 213, 0.2),
+      0 0 62px rgba(255, 98, 213, 0.1);
   }
   50% {
     text-shadow:
-      0 0 15px rgba(255, 106, 214, 0.3),
-      0 0 34px rgba(255, 106, 214, 0.12);
+      0 0 22px rgba(255, 128, 223, 0.6),
+      0 0 54px rgba(255, 128, 223, 0.34),
+      0 0 92px rgba(255, 128, 223, 0.18);
   }
 }
 
@@ -383,8 +347,7 @@ h2 {
     scroll-behavior: auto !important;
   }
 
-  .bg-grid,
-  .bg-pcb,
+  #pcb-canvas,
   .bg-glow,
   .logo-glow {
     animation: none !important;
