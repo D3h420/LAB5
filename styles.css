@@ -56,42 +56,104 @@ a {
   top: 12px;
 }
 
-.bg-aurora,
+.bg-ribbons,
 .bg-vignette {
   position: fixed;
   inset: 0;
   pointer-events: none;
 }
 
-.bg-aurora {
+.bg-ribbons {
   z-index: 0;
   overflow: hidden;
 }
 
-.bg-aurora::before,
-.bg-aurora::after {
-  content: "";
+.ribbon {
   position: absolute;
-  inset: -25%;
-  filter: blur(56px) saturate(120%);
+  border-radius: 50%;
+  mix-blend-mode: screen;
+  filter: saturate(125%) blur(1.2px);
   will-change: transform;
 }
 
-.bg-aurora::before {
-  background:
-    radial-gradient(ellipse at 16% 24%, rgba(109, 98, 255, 0.42), transparent 40%),
-    radial-gradient(ellipse at 84% 18%, rgba(255, 101, 199, 0.36), transparent 42%),
-    radial-gradient(ellipse at 62% 86%, rgba(90, 142, 255, 0.28), transparent 46%);
-  animation: auroraShiftA 28s ease-in-out infinite alternate;
+.ribbon-a {
+  width: 178vw;
+  height: 122vh;
+  left: -34vw;
+  top: -54vh;
+  opacity: 0.9;
+  background: conic-gradient(
+    from 220deg at 50% 50%,
+    rgba(43, 195, 255, 0.15) 0deg,
+    rgba(81, 110, 255, 0.85) 54deg,
+    rgba(220, 84, 255, 0.92) 112deg,
+    rgba(255, 95, 173, 0.9) 164deg,
+    rgba(255, 182, 126, 0.82) 212deg,
+    rgba(126, 218, 255, 0.86) 266deg,
+    rgba(43, 195, 255, 0.15) 360deg
+  );
+  -webkit-mask: radial-gradient(ellipse at center, transparent 54%, #000 58%, #000 67%, transparent 72%);
+  mask: radial-gradient(ellipse at center, transparent 54%, #000 58%, #000 67%, transparent 72%);
+  animation: ribbonFloatA 22s ease-in-out infinite alternate;
 }
 
-.bg-aurora::after {
-  background:
-    radial-gradient(ellipse at 30% 70%, rgba(149, 102, 255, 0.34), transparent 40%),
-    radial-gradient(ellipse at 72% 58%, rgba(80, 129, 255, 0.28), transparent 44%),
-    radial-gradient(ellipse at 54% 18%, rgba(255, 116, 206, 0.3), transparent 42%);
-  animation: auroraShiftB 34s ease-in-out infinite alternate;
-  opacity: 0.86;
+.ribbon-b {
+  width: 204vw;
+  height: 136vh;
+  left: -42vw;
+  top: 24vh;
+  opacity: 0.82;
+  background: conic-gradient(
+    from 24deg at 50% 50%,
+    rgba(255, 102, 188, 0.18) 0deg,
+    rgba(255, 74, 145, 0.86) 58deg,
+    rgba(255, 96, 118, 0.84) 126deg,
+    rgba(255, 176, 122, 0.92) 184deg,
+    rgba(255, 94, 170, 0.72) 250deg,
+    rgba(132, 93, 255, 0.22) 332deg,
+    rgba(255, 102, 188, 0.18) 360deg
+  );
+  -webkit-mask: radial-gradient(ellipse at center, transparent 59%, #000 63%, #000 73%, transparent 78%);
+  mask: radial-gradient(ellipse at center, transparent 59%, #000 63%, #000 73%, transparent 78%);
+  animation: ribbonFloatB 28s ease-in-out infinite alternate;
+}
+
+.ribbon-c {
+  width: 188vw;
+  height: 114vh;
+  left: -30vw;
+  top: -34vh;
+  opacity: 0.74;
+  background: conic-gradient(
+    from 250deg at 50% 50%,
+    rgba(77, 203, 255, 0.06) 0deg,
+    rgba(79, 205, 255, 0.8) 82deg,
+    rgba(116, 166, 255, 0.72) 152deg,
+    rgba(114, 109, 255, 0.54) 226deg,
+    rgba(79, 205, 255, 0.06) 360deg
+  );
+  -webkit-mask: radial-gradient(ellipse at center, transparent 56.5%, #000 58.5%, #000 63%, transparent 65.5%);
+  mask: radial-gradient(ellipse at center, transparent 56.5%, #000 58.5%, #000 63%, transparent 65.5%);
+  animation: ribbonFloatC 20s ease-in-out infinite alternate;
+}
+
+.ribbon-d {
+  width: 168vw;
+  height: 104vh;
+  left: -16vw;
+  top: -10vh;
+  opacity: 0.58;
+  background: conic-gradient(
+    from 292deg at 50% 50%,
+    rgba(255, 133, 215, 0.08) 0deg,
+    rgba(255, 110, 194, 0.62) 88deg,
+    rgba(255, 214, 146, 0.66) 150deg,
+    rgba(116, 198, 255, 0.52) 228deg,
+    rgba(255, 133, 215, 0.08) 360deg
+  );
+  -webkit-mask: radial-gradient(ellipse at center, transparent 64%, #000 66%, #000 70%, transparent 73%);
+  mask: radial-gradient(ellipse at center, transparent 64%, #000 66%, #000 70%, transparent 73%);
+  animation: ribbonFloatD 24s ease-in-out infinite alternate;
 }
 
 .bg-vignette {
@@ -316,21 +378,39 @@ h2 {
   font-size: 0.88rem;
 }
 
-@keyframes auroraShiftA {
+@keyframes ribbonFloatA {
   from {
-    transform: translate3d(-3%, -2%, 0) scale(1);
+    transform: translate3d(-2%, -1.5%, 0) rotate(6deg) scale(1);
   }
   to {
-    transform: translate3d(3%, 2%, 0) scale(1.06);
+    transform: translate3d(2.4%, 2%, 0) rotate(11deg) scale(1.05);
   }
 }
 
-@keyframes auroraShiftB {
+@keyframes ribbonFloatB {
   from {
-    transform: translate3d(2%, -3%, 0) scale(1.02);
+    transform: translate3d(-2.8%, 1.6%, 0) rotate(-9deg) scale(1);
   }
   to {
-    transform: translate3d(-2%, 3%, 0) scale(1.08);
+    transform: translate3d(2.6%, -1.2%, 0) rotate(-3deg) scale(1.07);
+  }
+}
+
+@keyframes ribbonFloatC {
+  from {
+    transform: translate3d(-1.4%, -1.8%, 0) rotate(4deg) scale(1);
+  }
+  to {
+    transform: translate3d(1.8%, 2.2%, 0) rotate(8deg) scale(1.04);
+  }
+}
+
+@keyframes ribbonFloatD {
+  from {
+    transform: translate3d(1.4%, -1.1%, 0) rotate(-4deg) scale(1);
+  }
+  to {
+    transform: translate3d(-1.6%, 1.9%, 0) rotate(-8deg) scale(1.05);
   }
 }
 
@@ -376,8 +456,7 @@ h2 {
     scroll-behavior: auto !important;
   }
 
-  .bg-aurora::before,
-  .bg-aurora::after,
+  .ribbon,
   .logo-glow {
     animation: none !important;
   }
