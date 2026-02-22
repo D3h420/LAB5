@@ -1,15 +1,16 @@
 :root {
   color-scheme: dark;
-  --bg-0: #030304;
-  --bg-1: #0a0a0c;
-  --panel: rgba(12, 12, 15, 0.92);
-  --text: #f4f1f6;
-  --muted: #a89faa;
-  --accent: #ff4cc8;
-  --accent-soft: #ff93df;
-  --border: rgba(255, 255, 255, 0.1);
-  --border-strong: rgba(255, 97, 213, 0.62);
-  --shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  --bg-0: #03050d;
+  --bg-1: #070a14;
+  --bg-2: #0d0f1b;
+  --panel: rgba(12, 15, 24, 0.68);
+  --text: #f3f4fa;
+  --muted: #a6abbd;
+  --accent: #ff73d2;
+  --accent-soft: #8ca7ff;
+  --border: rgba(255, 255, 255, 0.12);
+  --border-strong: rgba(255, 150, 220, 0.6);
+  --shadow: 0 20px 54px rgba(0, 0, 0, 0.46);
   --radius-lg: 16px;
   --radius-md: 12px;
   --speed-fast: 160ms ease;
@@ -28,10 +29,7 @@ body {
 }
 
 body {
-  background:
-    radial-gradient(circle at 14% 0%, rgba(255, 76, 200, 0.09), transparent 28%),
-    radial-gradient(circle at 88% 4%, rgba(255, 76, 200, 0.05), transparent 26%),
-    linear-gradient(170deg, var(--bg-0), var(--bg-1));
+  background: linear-gradient(160deg, var(--bg-0), var(--bg-1) 50%, var(--bg-2));
   color: var(--text);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   line-height: 1.55;
@@ -46,7 +44,7 @@ a {
   position: absolute;
   top: -40px;
   left: 12px;
-  z-index: 10;
+  z-index: 20;
   padding: 0.5rem 0.85rem;
   border-radius: 10px;
   background: #ffffff;
@@ -58,31 +56,53 @@ a {
   top: 12px;
 }
 
-#pcb-canvas,
-.bg-glow {
+.bg-aurora,
+.bg-vignette {
   position: fixed;
   inset: 0;
   pointer-events: none;
 }
 
-#pcb-canvas {
+.bg-aurora {
   z-index: 0;
-  opacity: 0.9;
+  overflow: hidden;
 }
 
-.bg-glow {
-  z-index: 1;
-  opacity: 0.26;
-  filter: blur(24px);
+.bg-aurora::before,
+.bg-aurora::after {
+  content: "";
+  position: absolute;
+  inset: -25%;
+  filter: blur(56px) saturate(120%);
+  will-change: transform;
+}
+
+.bg-aurora::before {
   background:
-    radial-gradient(circle at 18% 20%, rgba(255, 82, 208, 0.29), transparent 34%),
-    radial-gradient(circle at 80% 16%, rgba(255, 112, 218, 0.18), transparent 30%),
-    radial-gradient(circle at 60% 86%, rgba(181, 39, 121, 0.18), transparent 36%);
+    radial-gradient(ellipse at 16% 24%, rgba(109, 98, 255, 0.42), transparent 40%),
+    radial-gradient(ellipse at 84% 18%, rgba(255, 101, 199, 0.36), transparent 42%),
+    radial-gradient(ellipse at 62% 86%, rgba(90, 142, 255, 0.28), transparent 46%);
+  animation: auroraShiftA 28s ease-in-out infinite alternate;
+}
+
+.bg-aurora::after {
+  background:
+    radial-gradient(ellipse at 30% 70%, rgba(149, 102, 255, 0.34), transparent 40%),
+    radial-gradient(ellipse at 72% 58%, rgba(80, 129, 255, 0.28), transparent 44%),
+    radial-gradient(ellipse at 54% 18%, rgba(255, 116, 206, 0.3), transparent 42%);
+  animation: auroraShiftB 34s ease-in-out infinite alternate;
+  opacity: 0.86;
+}
+
+.bg-vignette {
+  z-index: 1;
+  background:
+    radial-gradient(circle at center, transparent 28%, rgba(3, 4, 8, 0.22) 62%, rgba(2, 2, 5, 0.58) 100%);
 }
 
 main {
   position: relative;
-  z-index: 4;
+  z-index: 5;
   padding: clamp(2rem, 4vw, 3rem) 0;
 }
 
@@ -110,19 +130,19 @@ h1 {
   line-height: 1;
   letter-spacing: -0.04em;
   text-shadow:
-    0 0 20px rgba(255, 110, 218, 0.62),
-    0 0 46px rgba(255, 110, 218, 0.38),
-    0 0 94px rgba(255, 110, 218, 0.2);
+    0 0 20px rgba(255, 130, 214, 0.6),
+    0 0 46px rgba(170, 140, 255, 0.3),
+    0 0 90px rgba(255, 130, 214, 0.18);
 }
 
 .logo-glow {
-  animation: logoPulse 3.6s ease-in-out infinite;
+  animation: logoPulse 4.6s ease-in-out infinite;
 }
 
 .tagline {
   margin: 0.7rem 0 0;
   max-width: 62ch;
-  color: #d2cad4;
+  color: #d2d6e7;
   font-size: clamp(0.96rem, 2.4vw, 1.12rem);
 }
 
@@ -151,6 +171,7 @@ h2 {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
 }
 
 .projects-grid {
@@ -212,7 +233,7 @@ h2 {
 .project-content p {
   margin: 0;
   margin-top: 0.42rem;
-  color: #c2bac4;
+  color: #c5cadc;
   font-size: 0.94rem;
   text-shadow: 0 1px 10px rgba(0, 0, 0, 0.75);
 }
@@ -235,16 +256,16 @@ h2 {
 
 .link-item {
   padding: 0.62rem 0.66rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 12px;
-  background: rgba(14, 14, 17, 0.9);
+  background: rgba(11, 13, 20, 0.82);
   transition: border-color var(--speed-fast), background var(--speed-fast);
 }
 
 .link-item:hover,
 .link-item:focus-within {
   border-color: var(--border-strong);
-  background: rgba(21, 14, 20, 0.94);
+  background: rgba(18, 16, 29, 0.88);
 }
 
 .icon-link {
@@ -252,7 +273,7 @@ h2 {
   align-items: center;
   gap: 0.52rem;
   text-decoration: none;
-  color: #f4edf6;
+  color: #f4f2fb;
   font-weight: 650;
   line-height: 1.25;
   border-radius: 8px;
@@ -278,36 +299,54 @@ h2 {
 
 .link-item p {
   margin: 0.34rem 0 0;
-  color: #b7acba;
+  color: #b7bccf;
   font-size: 0.87rem;
 }
 
 .site-footer {
   position: relative;
-  z-index: 4;
+  z-index: 5;
   padding: 0.5rem 0 1.75rem;
 }
 
 .site-footer p {
   margin: 0;
-  color: #8e8594;
+  color: #8f95aa;
   text-align: center;
   font-size: 0.88rem;
+}
+
+@keyframes auroraShiftA {
+  from {
+    transform: translate3d(-3%, -2%, 0) scale(1);
+  }
+  to {
+    transform: translate3d(3%, 2%, 0) scale(1.06);
+  }
+}
+
+@keyframes auroraShiftB {
+  from {
+    transform: translate3d(2%, -3%, 0) scale(1.02);
+  }
+  to {
+    transform: translate3d(-2%, 3%, 0) scale(1.08);
+  }
 }
 
 @keyframes logoPulse {
   0%,
   100% {
     text-shadow:
-      0 0 18px rgba(255, 112, 218, 0.56),
-      0 0 42px rgba(255, 112, 218, 0.34),
-      0 0 80px rgba(255, 112, 218, 0.16);
+      0 0 18px rgba(255, 132, 214, 0.52),
+      0 0 42px rgba(159, 136, 255, 0.28),
+      0 0 82px rgba(255, 132, 214, 0.14);
   }
   50% {
     text-shadow:
-      0 0 30px rgba(255, 148, 228, 0.92),
-      0 0 72px rgba(255, 148, 228, 0.58),
-      0 0 116px rgba(255, 148, 228, 0.28);
+      0 0 28px rgba(255, 160, 226, 0.84),
+      0 0 66px rgba(170, 150, 255, 0.48),
+      0 0 118px rgba(255, 160, 226, 0.24);
   }
 }
 
@@ -337,8 +376,8 @@ h2 {
     scroll-behavior: auto !important;
   }
 
-  #pcb-canvas,
-  .bg-glow,
+  .bg-aurora::before,
+  .bg-aurora::after,
   .logo-glow {
     animation: none !important;
   }
