@@ -335,7 +335,8 @@ h2 {
   font-size: 0.79rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: #ff7fd9;
+  text-shadow: 0 0 14px rgba(255, 115, 210, 0.28);
   font-weight: 700;
 }
 
