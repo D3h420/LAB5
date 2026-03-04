@@ -194,7 +194,160 @@ h1 {
 }
 
 .logo-glow {
-  animation: none;
+  position: relative;
+  display: inline-block;
+  isolation: isolate;
+  color: #f8f1ff;
+  text-shadow:
+    0 0 14px rgba(255, 128, 220, 0.5),
+    0 0 36px rgba(255, 112, 205, 0.34),
+    0 0 72px rgba(177, 132, 255, 0.2);
+  animation: logoCorePulse 4.9s ease-in-out infinite;
+}
+
+.logo-glow::before,
+.logo-glow::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  color: #ff7fd9;
+}
+
+.logo-glow::before {
+  z-index: -1;
+  opacity: 0.42;
+  filter: blur(2px);
+  mix-blend-mode: screen;
+  animation: logoBloomA 2.7s cubic-bezier(0.45, 0.05, 0.35, 1) infinite -0.8s;
+}
+
+.logo-glow::after {
+  z-index: -2;
+  opacity: 0.28;
+  filter: blur(10px);
+  mix-blend-mode: screen;
+  animation: logoBloomB 3.8s cubic-bezier(0.55, 0.08, 0.3, 1) infinite -1.35s;
+}
+
+@keyframes logoCorePulse {
+  0%,
+  9%,
+  19%,
+  34%,
+  52%,
+  79%,
+  100% {
+    transform: translateY(0) scale(1);
+    text-shadow:
+      0 0 14px rgba(255, 128, 220, 0.46),
+      0 0 36px rgba(255, 112, 205, 0.3),
+      0 0 72px rgba(177, 132, 255, 0.17);
+  }
+
+  13% {
+    transform: translateY(-0.4px) scale(1.014);
+    text-shadow:
+      0 0 18px rgba(255, 132, 224, 0.68),
+      0 0 46px rgba(255, 104, 202, 0.46),
+      0 0 86px rgba(198, 140, 255, 0.31);
+  }
+
+  27% {
+    transform: translateY(0.2px) scale(1.009);
+    text-shadow:
+      0 0 16px rgba(255, 140, 229, 0.58),
+      0 0 41px rgba(255, 100, 197, 0.4),
+      0 0 82px rgba(197, 132, 255, 0.27);
+  }
+
+  41% {
+    transform: translateY(-0.6px) scale(1.022);
+    text-shadow:
+      0 0 22px rgba(255, 139, 226, 0.8),
+      0 0 56px rgba(255, 107, 202, 0.58),
+      0 0 100px rgba(204, 143, 255, 0.38);
+  }
+
+  67% {
+    transform: translateY(0.1px) scale(1.011);
+    text-shadow:
+      0 0 17px rgba(255, 131, 221, 0.62),
+      0 0 44px rgba(254, 104, 199, 0.45),
+      0 0 88px rgba(193, 136, 255, 0.3);
+  }
+
+  90% {
+    transform: translateY(-0.5px) scale(1.019);
+    text-shadow:
+      0 0 20px rgba(255, 138, 226, 0.73),
+      0 0 50px rgba(255, 107, 202, 0.52),
+      0 0 97px rgba(202, 140, 255, 0.35);
+  }
+}
+
+@keyframes logoBloomA {
+  0%,
+  12%,
+  24%,
+  49%,
+  65%,
+  100% {
+    opacity: 0.32;
+    transform: translate(0, 0) scale(1);
+  }
+
+  7% {
+    opacity: 0.58;
+    transform: translate(0.6px, -0.3px) scale(1.026);
+  }
+
+  31% {
+    opacity: 0.66;
+    transform: translate(-0.5px, 0.35px) scale(1.032);
+  }
+
+  57% {
+    opacity: 0.54;
+    transform: translate(0.45px, -0.25px) scale(1.02);
+  }
+
+  83% {
+    opacity: 0.72;
+    transform: translate(-0.4px, 0.2px) scale(1.037);
+  }
+}
+
+@keyframes logoBloomB {
+  0%,
+  16%,
+  29%,
+  46%,
+  74%,
+  100% {
+    opacity: 0.21;
+    transform: translate(0, 0) scale(1);
+  }
+
+  10% {
+    opacity: 0.38;
+    transform: translate(-0.3px, 0.2px) scale(1.04);
+  }
+
+  37% {
+    opacity: 0.43;
+    transform: translate(0.4px, -0.2px) scale(1.055);
+  }
+
+  63% {
+    opacity: 0.34;
+    transform: translate(-0.35px, 0.1px) scale(1.03);
+  }
+
+  88% {
+    opacity: 0.47;
+    transform: translate(0.3px, -0.15px) scale(1.06);
+  }
 }
 
 .tagline {
