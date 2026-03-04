@@ -301,10 +301,27 @@ h2 {
 }
 
 .links-columns {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 1.2rem;
   align-items: start;
+}
+
+.links-columns::before {
+  content: "";
+  position: absolute;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  left: 50%;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0)
+  );
+  pointer-events: none;
 }
 
 .links-column {
@@ -434,9 +451,16 @@ h2 {
   .projects-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
 
+@media (max-width: 900px) {
   .links-columns {
     grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .links-columns::before {
+    display: none;
   }
 
   .links-list {
